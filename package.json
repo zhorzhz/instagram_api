@@ -1,0 +1,34 @@
+{
+  "name": "instagram_api",
+  "version": "1.0.0",
+  "description": "Instagram api examples in node",
+  "main": "server.js",
+  "dependencies": {
+    "blueimp-md5": "^1.0.3",
+    "md5": "^2.0.0",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "request": "^2.27.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhorzhz/instagram_api.git"
+  },
+  "keywords": [
+    "instagram",
+    "api",
+    "nodeJs",
+    "modules"
+  ],
+  "author": "Zhorzh Zakaryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhorzhz/instagram_api/issues"
+  },
+  "homepage": "https://github.com/zhorzhz/instagram_api#readme"
+}

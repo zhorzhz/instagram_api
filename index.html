@@ -1,0 +1,63 @@
+<html ng-app="Auth">
+    <head>
+        <script src="app.js"></script>
+
+    </head>
+    <body>
+        <a target="_blank" href="https://www.instagram.com/oauth/authorize/?client_id=377e67cfbfe840e19a903aa5ea8dbe10&redirect_uri=http://127.0.0.1/&response_type=token&scope=likes+comments+relationships+public_content+follower_list" style="background-color: royalblue ; border-color:royalblue; border-radius: 3px; color: white; cursor: pointer;"> Authorization with  Instagram</a>
+        <button onclick="getMe()" style="background-color: dodgerblue ; border-color:dodgerblue ; border-radius: 3px; color: white; cursor: pointer;"> Get Me</button>
+        <button onclick="getLiked()" style="background-color: dodgerblue ; border-color:dodgerblue ; border-radius: 3px; color: white; cursor: pointer;"> Get Liked</button>
+        <button onclick="followedusers()" style="background-color: dodgerblue ; border-color:dodgerblue ; border-radius: 3px; color: white; cursor: pointer;"> Get Followed Users</button>
+        <button onclick="getFriend()" style="background-color: dodgerblue ; border-color:dodgerblue ; border-radius: 3px; color: white; cursor: pointer;"> Get My friends</button>
+    </body>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            console.log('hash', window.location.hash);
+        });
+        function getMe(){
+            var token = window.location.hash.substr(window.location.hash.indexOf('=')+1);
+            $.ajax({
+                url: 'http://localhost:3000/insta/getMe',
+                type: 'GET',
+                data: {token: token},
+                success: function(resp){
+                    console.log(resp);
+                }
+            })
+        }
+        function getLiked(){
+            var token = window.location.hash.substr(window.location.hash.indexOf('=')+1);
+            $.ajax({
+                url: 'http://localhost:3000/insta/getLiked',
+                type: 'GET',
+                data: {token: token},
+                success: function(resp){
+                    console.log(resp);
+                }
+            })
+        }
+        function followedusers(){
+            var token = window.location.hash.substr(window.location.hash.indexOf('=')+1);
+            $.ajax({
+                url: 'http://localhost:3000/insta/getFollowedusers',
+                type: 'GET',
+                data: {token: token},
+                success: function(resp){
+                    console.log(resp);
+                }
+            })
+        }
+        function getFriend(){
+        	var token = window.location.hash.substr(window.location.hash.indexOf('=')+1);
+            $.ajax({
+                url: 'http://localhost:3000/insta/getFriends',
+                type: 'GET',
+                data: {token: token},
+                success: function(resp){
+                    console.log(resp);
+                }
+            })
+        }
+    </script>
+</html>
